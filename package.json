@@ -1,6 +1,6 @@
 {
     "private": true,
-    "name": "react-admin-extended",
+    "name": "react-admin-ext",
     "version": "1.0.0",
     "scripts": {
         "build": "lerna run build",
