@@ -118,22 +118,6 @@ export interface CoreAdminUIProps {
     dashboard?: DashboardComponent;
 
     /**
-     * Set to true to disable anonymous telemetry collection
-     *
-     * @see https://marmelab.com/react-admin/Admin.html#disabletelemetry
-     * @example
-     * import { Admin } from 'react-admin';
-     * import { dataProvider } from './dataProvider';
-     *
-     * const App = () => (
-     *     <Admin disableTelemetry dataProvider={dataProvider}>
-     *         ...
-     *     </Admin>
-     * );
-     */
-    disableTelemetry?: boolean;
-
-    /**
      * The component displayed when an error is caught in a child component
      * @see https://marmelab.com/react-admin/Admin.html#error
      * @example
@@ -323,7 +307,6 @@ export const CoreAdminUI = (props: CoreAdminUIProps) => {
         catchAll = Noop,
         children,
         dashboard,
-        disableTelemetry = false,
         error: ErrorComponent = DefaultError,
         layout = DefaultLayout,
         loading = Noop,
@@ -334,20 +317,6 @@ export const CoreAdminUI = (props: CoreAdminUIProps) => {
         authenticationError = Noop,
         accessDenied = Noop,
     } = props;
-
-    useEffect(() => {
-        if (
-            disableTelemetry ||
-            process.env.NODE_ENV !== 'production' ||
-            typeof window === 'undefined' ||
-            typeof window.location === 'undefined' ||
-            typeof Image === 'undefined'
-        ) {
-            return;
-        }
-        const img = new Image();
-        img.src = `https://react-admin-telemetry.marmelab.com/react-admin-telemetry?domain=${window.location.hostname}`;
-    }, [disableTelemetry]);
 
     const handleError = (error: Error, info: ErrorInfo) => setErrorInfo(info);
 

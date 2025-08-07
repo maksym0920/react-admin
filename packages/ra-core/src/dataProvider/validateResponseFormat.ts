@@ -26,26 +26,6 @@ function validateResponseFormat(response, type, logger = console.error) {
         throw new Error('ra.notification.data_provider_error');
     }
     if (
-        fetchActionsWithArrayOfIdentifiedRecordsResponse.includes(type) &&
-        Array.isArray(response.data) &&
-        response.data.length > 0 &&
-        !response.data[0].hasOwnProperty('id')
-    ) {
-        logger(
-            `The response to '${type}' must be like { data : [{ id: 123, ...}, ...] }, but the received data items do not have an 'id' key. The dataProvider is probably wrong for '${type}'`
-        );
-        throw new Error('ra.notification.data_provider_error');
-    }
-    if (
-        fetchActionsWithRecordResponse.includes(type) &&
-        !response.data.hasOwnProperty('id')
-    ) {
-        logger(
-            `The response to '${type}' must be like { data: { id: 123, ... } }, but the received data does not have an 'id' key. The dataProvider is probably wrong for '${type}'`
-        );
-        throw new Error('ra.notification.data_provider_error');
-    }
-    if (
         fetchActionsWithTotalResponse.includes(type) &&
         !response.hasOwnProperty('total') &&
         !response.hasOwnProperty('pageInfo')

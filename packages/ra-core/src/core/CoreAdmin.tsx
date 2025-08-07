@@ -92,7 +92,6 @@ export const CoreAdmin = (props: CoreAdminProps) => {
         children,
         dashboard,
         dataProvider,
-        disableTelemetry,
         error,
         i18nProvider,
         layout,
@@ -118,7 +117,6 @@ export const CoreAdmin = (props: CoreAdminProps) => {
                 authenticationError={authenticationError}
                 catchAll={catchAll}
                 dashboard={dashboard}
-                disableTelemetry={disableTelemetry}
                 error={error}
                 layout={layout}
                 loading={loading}
