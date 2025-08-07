@@ -1,6 +1,7 @@
 {
     "private": true,
     "name": "react-admin-lerna",
+    "version": "1.0.0",
     "scripts": {
         "build": "lerna run build",
         "watch": "lerna run --parallel watch",
