@@ -1,8 +1,5 @@
 {
     "private": true,
-    "name": "react-admin-ext",
-    "repository": "maksym0920/react-admin-ext",
-    "version": "1.0.1",
     "scripts": {
         "build": "lerna run build",
         "watch": "lerna run --parallel watch",
